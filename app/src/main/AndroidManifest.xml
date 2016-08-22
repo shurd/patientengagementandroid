@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="isis.vanderbilt.com.knock" >
+
+
+    <uses-sdk android:minSdkVersion="8"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- [START gcm_permission] -->
+    <permission android:name="isis.vanderbilt.com.knock.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="isis.vanderbilt.com.knock.permission.C2D_MESSAGE" />
+    <!-- [END gcm_permission] -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SetupActivity"
+            android:label="@string/title_activity_setup"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".QuestionsActivity"
+            android:label="@string/title_activity_questions"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".QRActivity"
+            android:label="@string/title_activity_qr" >
+        </activity>
+
+        <!-- [START gcm_receiver] -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.example.gcm" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="isis.vanderbilt.com.knock.MyGcmListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="isis.vanderbilt.com.knock.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <!-- [END gcm_receiver] -->
+
+        <service
+            android:name="isis.vanderbilt.com.knock.RegistrationIntentService"
+            android:exported="false">
+        </service>
+
+    </application>
+
+</manifest>

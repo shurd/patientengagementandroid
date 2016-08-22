@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="0dp"
+    android:background="@drawable/tree_background"
+    tools:context="isis.vanderbilt.com.knock.QuestionsActivity">
+
+<LinearLayout
+    android:id="@+id/question_layout"
+    android:layout_margin="20dp"
+    android:layout_above="@+id/button_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/questionpad_layout">
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent">
+    </ListView>
+</LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_alignTop="@id/question_layout"
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/question_top_layout">
+    </LinearLayout>
+    <TextView
+        android:id="@+id/empty_listview"
+        android:layout_below="@id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="40dp"
+        android:textColor="#000"
+        android:gravity="center"/>
+    <LinearLayout
+        android:layout_margin="0dp"
+        android:id="@id/button_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/question_button_layout">
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_device"
+            android:background="@drawable/questions_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_weight="1"/>
+        <View
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000"/>
+        <Button
+            android:id="@+id/logout_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/questions_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="@string/logout"
+            android:layout_weight="1"/>
+        </LinearLayout>
+
+</RelativeLayout>
